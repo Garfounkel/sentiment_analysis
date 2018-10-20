@@ -1,9 +1,12 @@
 # Sentiment analysis
 Sentiment analysis of Tweets using Deep Learning.
 
+## Requirements
+Tweeter tokenizer:
+`pip install git+https://github.com/erikavaris/tokenizer.git`
 
 
-### Ressources
+## Ressources
 **Most interesting:**
 
 * Sentiment140 (neg, neu, pos) {1.6M}: https://www.kaggle.com/kazanova/sentiment140
