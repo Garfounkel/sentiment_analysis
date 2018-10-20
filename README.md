@@ -9,6 +9,7 @@ Unzip `data/sentiment140.zip`, it is our main dataset.
 
 ## Ideas for improvements
 * Lemmatisation
+* Better normalisation (remove emails, dates, pseudonymes, ...)
 * Include more datasets into training phase
 * Better emoticon gestion
 * TF-idf, n-grams, skip-grams
