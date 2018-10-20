@@ -5,6 +5,11 @@ Sentiment analysis of Tweets using Deep Learning.
 Tweeter tokenizer:
 `pip install git+https://github.com/erikavaris/tokenizer.git`
 
+## Ideas for improvements
+* Lemmatisation
+* Include more datasets into training phase
+* Better emoticon gestion
+* TF-idf, n-grams, skip-grams
 
 ## Ressources
 **Most interesting:**
