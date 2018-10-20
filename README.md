@@ -4,6 +4,8 @@ Sentiment analysis of Tweets using Deep Learning.
 ## Requirements
 Tweeter tokenizer:
 `pip install git+https://github.com/erikavaris/tokenizer.git`
+### Data
+Unzip `data/sentiment140.zip`, it is our main dataset.
 
 ## Ideas for improvements
 * Lemmatisation
