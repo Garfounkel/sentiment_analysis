@@ -1,1 +1,3 @@
+nltk
+keras
 git+https://github.com/erikavaris/tokenizer.git

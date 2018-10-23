@@ -1,12 +1,13 @@
 #TODO: Sentiment Analysis
 
-##Preprocessing
+##Text Preprocessing
 - [x] Tokenisation
 - [x] Stemming
 - [x] Lemmatisation
 
 ##Word2Vec
 - [ ] Collect large tweet datasets
+- [x] One-Hot encoding
 - [ ] Context definition
 - [ ] Implementation of the NN for word2vec
 - [ ] Training
