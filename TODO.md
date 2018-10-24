@@ -17,8 +17,8 @@
 - [ ] Collect large annotated tweet datasets
     - [x] Collect from different online sources
     - [ ] Use different approaches to annotates some tweets, based on emojis, adjectives... etc.
-- [ ] Implementation of the LSTM with Keras
-- [ ] Training
+- [X] Implementation of the LSTM with Keras
+- [X] Training
 - [ ] Validation
 
 ##Transfer Learning
