@@ -1,6 +1,6 @@
 import pandas as pd
 import re
-import emoji
+import TP_transfer_learning_2018.emoji as emoji
 from nltk.tokenize import TweetTokenizer
 from nltk import pos_tag
 from nltk.stem import WordNetLemmatizer
@@ -12,7 +12,7 @@ from unidecode import unidecode
 tknzr = TweetTokenizer()
 lemmatizer = WordNetLemmatizer()
 notstopwords = set(('not', 'no'))
-stopwords = set( stopwords.words('english')) - notstopwords
+stopwords = set(stopwords.words('english')) - notstopwords
 
 
 def data_preprocessing(path_tweets):
