@@ -1,8 +1,10 @@
 import random
 from functools import reduce
 import datetime
+
+from sklearn.utils import deprecated
 from twitterscraper import query_tweets
-import mysql.connector
+
 from nltk import Counter
 from sklearn.datasets import fetch_20newsgroups
 from text_preprocessing import KerasTokenizer
@@ -16,6 +18,7 @@ def or_binop(lhw, rhw):
     return lhw + ' OR ' + rhw
 
 
+@deprecated
 def fetch_tweets(vocab):
     query_string = reduce(or_binop, random.sample(vocab, 10))
 
@@ -29,38 +32,13 @@ def fetch_tweets(vocab):
     return tweets
 
 
-def insert_db(db, tweets):
-    errors = 0
-    cursor = db.cursor()
-    sql = 'SELECT COUNT(ID) FROM tweets'
-    cursor.execute(sql, ())
-    before = cursor.fetchall()[0][0]
-    for tweet in tweets:
-        id = tweet.id
-        text = tweet.text.translate(str.maketrans({"\\": r"\\", "\"": r"\\\""}))
-        try:
-            sql = 'INSERT INTO tweets (id, text) VALUES ({}, "{}") ON DUPLICATE KEY UPDATE id = id'.format(id, text)
-            cursor.execute(sql, ())
-            mySQLdb.commit()
-        except Exception as e:
-            print(e)
-            errors += 1
-    sql = 'SELECT COUNT(ID) FROM tweets'
-    cursor.execute(sql, ())
-    after = cursor.fetchall()[0][0]
-    return errors, after, before
 
 
 if __name__ == '__main__':
 
     startdate = datetime.datetime.now()
 
-    mySQLdb = mysql.connector.connect(
-        host="localhost",
-        user="nicolas",
-        passwd="nicolas",
-        database="tweets",
-    )
+
 
     limit = 10000
     count = 0
