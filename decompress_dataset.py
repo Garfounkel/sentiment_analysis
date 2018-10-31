@@ -2,7 +2,7 @@ import json
 import subprocess
 import glob
 import mysql.connector
-from tweet_scraper import insert_db
+#from tweet_scraper import insert_db
 
 
 def tweet_generator():
@@ -32,20 +32,22 @@ class Tweet:
         self.id = id
         self.text = text
 
-
-if __name__ == "__main__":
-
+def decompress():
+    '''
     mySQLdb = mysql.connector.connect(
         host="localhost",
         user="nicolas",
         passwd="nicolas",
         database="tweets",
     )
-
+'''
     tweets = filter(lambda x: "lang" in x, tweet_generator())
     tweets = filter(lambda x: x["lang"] == "en", tweets)
     tweets = filter(lambda x: "retweeted_status" not in x, tweets)
     tweets = map(lambda x: Tweet(x["id"], get_tweet_text(x)), tweets)
     tweets = filter(lambda x: '…' not in x.text, tweets)
 
-    insert_db(mySQLdb, tweets)
+    #insert_db(mySQLdb, tweets)
+
+if __name__ == "__main__":
+    decompress()
