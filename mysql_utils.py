@@ -8,6 +8,12 @@ mySQLdb = mysql.connector.connect(
     )
 
 
+class Tweet:
+    def __init__(self, id, text):
+        self.id = id
+        self.text = text
+
+
 def mysql_sink(tweets, db=mySQLdb):
     errors = 0
     cursor = db.cursor()
@@ -44,7 +50,10 @@ def mysql_sink(tweets, db=mySQLdb):
 
 def mysql_reader(db=mySQLdb, max=None):
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM tweets")
+    if max is None:
+        cursor.execute("SELECT * FROM tweets")
+    else:
+        cursor.execute("SELECT * FROM tweets LIMIT {}".format(max))
 
     count = max
     if max is None:
