@@ -1,5 +1,7 @@
 import mysql.connector
 
+from processing_pipeline import Preprocessor
+
 mySQLdb = mysql.connector.connect(
         host="localhost",
         user="nicolas",
@@ -61,6 +63,11 @@ def mysql_reader(db=mySQLdb, max=None):
     while count:
         count -= 1
         yield cursor.fetchone()
+
+
+class MysqlTweetTextGetter(Preprocessor):
+    def __call__(self, *args, **kwargs):
+        return args[0][1]
 
 
 if __name__ == "__main__":
