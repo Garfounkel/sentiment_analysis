@@ -57,17 +57,6 @@ class NLTKLemmatizer(Lemmatizer):
         return self.lmer.lemmatize(*args, pos="v", **kwargs)
 
 
-class Pipeline:
-    def __init__(self, data, preprocessors=None):
-        self.pipeline = data
-        preprocessors = preprocessors or []
-        for pproc in preprocessors:
-            self.pipeline = pproc(self.pipeline)
-
-    def __iter__(self):
-        return iter(self.pipeline)
-
-
 """
 Testing the preprocessing classes
 """
