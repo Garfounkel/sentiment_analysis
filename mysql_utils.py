@@ -40,3 +40,19 @@ def mysql_sink(tweets, db=mySQLdb):
     after = cursor.fetchall()[0][0]
     inserted = after - before
     return errors, inserted, stream_size
+
+
+def mysql_reader(db=mySQLdb, max=None):
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM tweets")
+
+    count = max
+    if max is None:
+        count = -1
+    while count:
+        count -= 1
+        yield cursor.fetchone()
+
+
+if __name__ == "__main__":
+    print(list(mysql_reader(max=10)))
