@@ -1,11 +1,19 @@
 import mysql.connector
 
+from processing_pipeline import Preprocessor
+
 mySQLdb = mysql.connector.connect(
         host="localhost",
         user="nicolas",
         passwd="nicolas",
         database="tweets",
     )
+
+
+class Tweet:
+    def __init__(self, id, text):
+        self.id = id
+        self.text = text
 
 
 def mysql_sink(tweets, db=mySQLdb):
@@ -40,3 +48,27 @@ def mysql_sink(tweets, db=mySQLdb):
     after = cursor.fetchall()[0][0]
     inserted = after - before
     return errors, inserted, stream_size
+
+
+def mysql_reader(db=mySQLdb, max=None):
+    cursor = db.cursor()
+    if max is None:
+        cursor.execute("SELECT * FROM tweets")
+    else:
+        cursor.execute("SELECT * FROM tweets LIMIT {}".format(max))
+
+    count = max
+    if max is None:
+        count = -1
+    while count:
+        count -= 1
+        yield cursor.fetchone()
+
+
+class MysqlTweetTextGetter(Preprocessor):
+    def __call__(self, *args, **kwargs):
+        return args[0][1]
+
+
+if __name__ == "__main__":
+    print(list(mysql_reader(max=10)))
