@@ -4,4 +4,5 @@ data/zip/
 data/Valence_unprocessed/
 data/training.1600000.processed.noemoticon.csv
 *.bin
-
+data/embeddings/datastories.twitter.300d.txt
+pickles/emb_dr_bi_bi_dr-16m_3.h5

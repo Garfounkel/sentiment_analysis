@@ -13,6 +13,7 @@ Unzip `data/sentiment140.zip`, it is our main dataset.
 * Include more datasets into training phase
 * Better emoticon gestion
 * TF-idf, n-grams, skip-grams
+* Ekphrasis lib for preprocessing
 
 ## Ressources
 **Most interesting:**
