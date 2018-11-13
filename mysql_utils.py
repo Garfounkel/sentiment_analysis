@@ -50,19 +50,25 @@ def mysql_sink(tweets, db=mySQLdb):
     return errors, inserted, stream_size
 
 
-def mysql_reader(db=mySQLdb, max=None):
+def mysql_reader(db=mySQLdb, max=None, chunk_size=10000):
     cursor = db.cursor()
-    if max is None:
-        cursor.execute("SELECT * FROM tweets")
-    else:
-        cursor.execute("SELECT * FROM tweets LIMIT {}".format(max))
-
+    sql = 'SELECT COUNT(ID) FROM tweets'
+    cursor.execute(sql)
+    db_size = cursor.fetchall()[0][0]
+    if max is None or max > db_size:
+        max = db_size
     count = max
-    if max is None:
-        count = -1
+    offset = 0
+    limit = chunk_size
     while count:
-        count -= 1
-        yield cursor.fetchone()
+        if limit > count:
+            limit = count
+        sql = "SELECT * FROM tweets LIMIT {}, {}".format(offset, limit)
+        cursor.execute(sql)
+        for _ in range(limit):
+            yield cursor.fetchone()
+        count -= limit
+        offset += limit
 
 
 class MysqlTweetTextGetter(Preprocessor):

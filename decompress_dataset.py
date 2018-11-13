@@ -3,7 +3,7 @@ import subprocess
 import glob
 import datetime
 
-from mysql_sink import mysql_sink
+from mysql_utils import mysql_sink
 
 
 def tweet_generator():
