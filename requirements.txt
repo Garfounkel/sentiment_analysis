@@ -1,4 +1,4 @@
-pandas
+pandas==0.23.4
 nltk
 keras
 git+https://github.com/erikavaris/tokenizer.git
@@ -6,3 +6,5 @@ mysql-connector
 twitterscraper
 scikit-learn
 gensim
+unidecode
+feather-format==0.4.0
