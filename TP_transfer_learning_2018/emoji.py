@@ -434,14 +434,17 @@ emojis = {
 
 
 def str2emoji(tweet):
-	for pos,ej in enumerate(tweet):
-		if ej in emojis:
-			tweet[pos]=emojis[ej]
-	return tweet
-           
-            	
-            	
-            	
+    for pos,ej in enumerate(tweet):
+        if ej in emojis:
+            tweet[pos]=emojis[ej]
+    return tweet
+
+
+def token2emoji(token):
+    if token in emojis:
+        return emojis[token]
+    return token
+
 #e=str2emoji(["oO", "ok" , ";)","hhh",":‑)"])
 #print(e)
 
