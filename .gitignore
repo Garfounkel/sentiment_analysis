@@ -1,7 +1,6 @@
 .ipynb_checkpoints/
 __pycache__/
 data/zip/
-data/Valence_unprocessed/
 data/training.1600000.processed.noemoticon.csv
 *.bin
 data/embeddings/datastories.twitter.300d.txt
