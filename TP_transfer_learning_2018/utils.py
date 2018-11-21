@@ -223,11 +223,11 @@ def evaluate_oc(pred,gold):
     """
   
    
-    f=open(pred, "rb")
+    f=open(pred, "r")
     pred_lines=f.readlines()
     f.close()
     
-    f=open(gold, "rb")
+    f=open(gold, "r")
     gold_lines=f.readlines()
     f.close()    
 
