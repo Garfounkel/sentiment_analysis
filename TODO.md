@@ -6,20 +6,20 @@
 - [x] Lemmatisation
 
 ##Word2Vec
-- [ ] Collect large tweet datasets
+- [x] Collect large tweet datasets
 - [x] One-Hot encoding
-- [ ] Context definition
-- [ ] Implementation of the NN for word2vec
-- [ ] Training
-- [ ] Validation
+- [x] Context definition
+- [x] Implementation of the NN for word2vec
+- [x] Training
 
 ##Ternary output LSTM
-- [ ] Collect large annotated tweet datasets
+- [x] Collect large annotated tweet datasets
     - [x] Collect from different online sources
-    - [ ] Use different approaches to annotates some tweets, based on emojis, adjectives... etc.
-- [X] Implementation of the LSTM with Keras
-- [X] Training
-- [ ] Validation
+    - [x] Use different approaches to annotates some tweets, based on emojis, adjectives... etc.
+- [x] Implementation of the LSTM with Keras
+- [x] Training
 
 ##Transfer Learning
-- [ ] fill the TODO for transfer learning
+- [x] Modify an existing model
+- [x] Train
+- [x] Pearson/accuracy evaluation, some optimisation
