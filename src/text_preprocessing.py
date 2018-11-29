@@ -1,4 +1,4 @@
-from processing_pipeline import *
+from .processing_pipeline import *
 
 from keras.preprocessing.text import text_to_word_sequence
 from tokenizer import tokenizer

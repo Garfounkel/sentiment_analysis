@@ -1,6 +1,5 @@
 import pandas as pd
 import re
-import TP_transfer_learning_2018.emoji as emoji
 from nltk.tokenize import TweetTokenizer
 from nltk import pos_tag
 from nltk.stem import WordNetLemmatizer
@@ -8,6 +7,8 @@ from nltk.corpus import stopwords
 from string import punctuation
 import sys
 from unidecode import unidecode
+
+import src.emoji as emoji
 
 tknzr = TweetTokenizer()
 lemmatizer = WordNetLemmatizer()
